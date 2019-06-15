@@ -3,7 +3,7 @@ import Home from './HomeComponent';
 import About from './AboutComponent';
 import Menu from './MenuComponent';
 import Contact from './ContactComponent'
-import SelectedDishes from "./DishDetailComponent";
+import DishDetail from "./DishDetailComponent";
 import Header from './HeaderComponent'
 import Footer from './FooterComponent' 
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
@@ -40,7 +40,7 @@ class Main extends Component {
 
     const DishWithID = ({match}) => {
       return(
-        <SelectedDishes dis={this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]} 
+        <DishDetail dish={this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]} 
           comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
           />
 

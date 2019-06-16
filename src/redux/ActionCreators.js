@@ -82,9 +82,9 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
       })
     .then(response => response.json())
     .then(response => dispatch(addFeedback(response)))
-    .then(data => {
-        console.log(data.payload)
-        alert('Thanks you for your feedback!\n' + JSON.stringify(data.payload))
+    .then(response => {
+        
+        alert('Thank you for your feedback!\n' + JSON.stringify(response.payload))
     })
     .catch(error => { 
         console.log('post feedback', error.message); 

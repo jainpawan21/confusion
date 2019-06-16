@@ -40,6 +40,7 @@ class Main extends Component {
     this.props.fetchDishes();
     this.props.fetchComments();
     this.props.fetchPromos();
+    console.log(this.props.dishes.errMes)
   }
   // componentDidUpdate(){
   //   console.log(this.props.comments);

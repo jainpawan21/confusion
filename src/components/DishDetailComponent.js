@@ -27,7 +27,7 @@ function RenderDish({ dish }) {
 }
 
 
-function RenderComments({ comments,addComment,dishId }) {
+function RenderComments({ comments, postComment,dishId }) {
 
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -54,7 +54,7 @@ function RenderComments({ comments,addComment,dishId }) {
                 <ul className='list-unstyled'>
                     {comments_2}
                 </ul>
-                <CommentForm dishId={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
             
         </div>
     );
@@ -84,10 +84,10 @@ class CommentForm extends Component {
    handleSubmit(values) {
        console.log(values);
        console.log(values.rating);
-       console.log(this.props.addComment);
+       console.log(this.props.postComment);
        console.log(this.props.dishId);
        this.toggleModal();
-       this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+       this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
 }
 
     render() {
@@ -180,7 +180,7 @@ const DishDetail = (props) => {
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <RenderComments comments={props.comments} 
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         dishId={props.dish.id}/>
                     </div>
                 </div>
